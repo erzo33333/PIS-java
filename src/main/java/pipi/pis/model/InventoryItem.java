@@ -1,40 +1,77 @@
 package pipi.pis.model;
 
+import pipi.pis.model.enums.InventoryStatus;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class InventoryItem {
-    private int id;
-    private int agreementId;
-    private String title;
-    private String description;
-    private String category; //enum
-    private String condition;
-    private int price;
-    private String status;  //enum
-    private String imagePath;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    private Long id;
+    private PledgeAgreement agreement;
+    private String itemName;
+    private String itemDescription;
+    private String category;
+    private BigDecimal estimatedPrice;
+    private BigDecimal salePrice;
+    private InventoryStatus status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public int getAgreementId() { return agreementId; }
-    public void setAgreementId(int agreementId) { this.agreementId = agreementId; }
+    public InventoryItem() {
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public InventoryItem(
+            Long id,
+            PledgeAgreement agreement,
+            String itemName,
+            String itemDescription,
+            String category,
+            BigDecimal estimatedPrice,
+            BigDecimal salePrice,
+            InventoryStatus status,
+            LocalDateTime createdAt,
+            LocalDateTime updatedAt
+    ) {
+        this.id = id;
+        this.agreement = agreement;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.category = category;
+        this.estimatedPrice = estimatedPrice;
+        this.salePrice = salePrice;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public PledgeAgreement getAgreement() { return agreement; }
+    public void setAgreement(PledgeAgreement agreement) { this.agreement = agreement; }
+
+    public String getItemName() { return itemName; }
+    public void setItemName(String itemName) { this.itemName = itemName; }
+
+    public String getItemDescription() { return itemDescription; }
+    public void setItemDescription(String itemDescription) { this.itemDescription = itemDescription; }
 
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
 
-    public String getCondition() { return condition; }
-    public void setCondition(String condition) { this.condition = condition; }
+    public BigDecimal getEstimatedPrice() { return estimatedPrice; }
+    public void setEstimatedPrice(BigDecimal estimatedPrice) { this.estimatedPrice = estimatedPrice; }
 
-    public int getPrice() { return price; }
-    public void setPrice(int price) { this.price = price; }
+    public BigDecimal getSalePrice() { return salePrice; }
+    public void setSalePrice(BigDecimal salePrice) { this.salePrice = salePrice; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public InventoryStatus getStatus() { return status; }
+    public void setStatus(InventoryStatus status) { this.status = status; }
 
-    public String getImagePath() { return imagePath; }
-    public void setImagePath(String imagePath) { this.imagePath = imagePath; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }

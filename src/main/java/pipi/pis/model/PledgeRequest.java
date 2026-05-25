@@ -1,44 +1,65 @@
 package pipi.pis.model;
 
-import javafx.scene.control.ScrollToEvent;
+import pipi.pis.model.enums.PledgeRequestStatus;
 
-import java.util.Date;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class PledgeRequest {
-    private int id;
-    private int clientId;
-    private String itemType; //enum
-    private String description;
-    private double desiredAmount;
-    private String status;  //enum
-    private Date createdAt;
-    private int processedBy;
-    private Date processedAt;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    private Long id;
+    private Client client;
+    private String itemType;
+    private String itemDescription;
+    private BigDecimal desiredLoanAmount;
+    private PledgeRequestStatus status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public int getClientId() { return clientId; }
-    public void setClientId(int clientId) { this.clientId = clientId; }
+    public PledgeRequest() {
+    }
+
+    public PledgeRequest(
+            Long id,
+            Client client,
+            String itemType,
+            String itemDescription,
+            BigDecimal desiredLoanAmount,
+            PledgeRequestStatus status,
+            LocalDateTime createdAt,
+            LocalDateTime updatedAt
+    ) {
+        this.id = id;
+        this.client = client;
+        this.itemType = itemType;
+        this.itemDescription = itemDescription;
+        this.desiredLoanAmount = desiredLoanAmount;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Client getClient() { return client; }
+    public void setClient(Client client) { this.client = client; }
 
     public String getItemType() { return itemType; }
     public void setItemType(String itemType) { this.itemType = itemType; }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getItemDescription() { return itemDescription; }
+    public void setItemDescription(String itemDescription) { this.itemDescription = itemDescription; }
 
-    public double getDesiredAmount() { return desiredAmount; }
-    public void setDesiredAmount(double desiredAmount) { this.desiredAmount = desiredAmount; }
+    public BigDecimal getDesiredLoanAmount() { return desiredLoanAmount; }
+    public void setDesiredLoanAmount(BigDecimal desiredLoanAmount) { this.desiredLoanAmount = desiredLoanAmount; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public PledgeRequestStatus getStatus() { return status; }
+    public void setStatus(PledgeRequestStatus status) { this.status = status; }
 
-    public Date getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
-    public int getProcessedBy() { return processedBy; }
-    public void setProcessedBy(int processedBy) { this.processedBy = processedBy; }
-
-    public Date getProcessedAt() { return processedAt; }
-    public void setProcessedAt(Date processedAt) { this.processedAt = processedAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }

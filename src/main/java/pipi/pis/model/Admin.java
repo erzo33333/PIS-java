@@ -1,30 +1,44 @@
 package pipi.pis.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Admin {
-    private int id;
-    private String fullName;
-    private String email;
-    private String passwordHash;
-    private boolean isActive;  //enum
-    private Date createdAt;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    private Long id;
+    private User user;
+    private String fullName;
+    private String position;
+    private LocalDateTime createdAt;
+
+    public Admin() {
+    }
+
+    public Admin(
+            Long id,
+            User user,
+            String fullName,
+            String position,
+            LocalDateTime createdAt
+    ) {
+        this.id = id;
+        this.user = user;
+        this.fullName = fullName;
+        this.position = position;
+        this.createdAt = createdAt;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 
     public String getFullName() { return fullName; }
     public void setFullName(String fullName) { this.fullName = fullName; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getPosition() { return position; }
+    public void setPosition(String position) { this.position = position; }
 
-    public String getPasswordHash() { return passwordHash; }
-    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
-
-    public boolean isActive() { return isActive; }
-    public void setIsActive(boolean isActive) { this.isActive = isActive; }
-
-    public Date getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

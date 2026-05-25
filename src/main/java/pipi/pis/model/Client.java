@@ -1,33 +1,60 @@
 package pipi.pis.model;
 
-import java.util.Date;
+import pipi.pis.model.enums.VerificationStatus;
+
+import java.time.LocalDateTime;
 
 public class Client {
-    private int id;
-    private String lastName;
-    private String firstName;
-    private String middleName;
+
+    private Long id;
+    private User user;
+    private String fullName;
     private String phone;
     private String passport;
-    private String address;
-    private String verificationStatus;  //enum
-    private Date verificationDate;
-    private String email;
-    private String passwordHash;
-    private boolean isActive;
-    private Date createdAt;
+    private String registrationAddress;
+    private VerificationStatus verificationStatus;
+    private String passportMainPhotoPath;
+    private String passportRegistrationPhotoPath;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public Client() {
+    }
 
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public Client(
+            Long id,
+            User user,
+            String fullName,
+            String phone,
+            String passport,
+            String registrationAddress,
+            VerificationStatus verificationStatus,
+            String passportMainPhotoPath,
+            String passportRegistrationPhotoPath,
+            LocalDateTime createdAt,
+            LocalDateTime updatedAt
+    ) {
+        this.id = id;
+        this.user = user;
+        this.fullName = fullName;
+        this.phone = phone;
+        this.passport = passport;
+        this.registrationAddress = registrationAddress;
+        this.verificationStatus = verificationStatus;
+        this.passportMainPhotoPath = passportMainPhotoPath;
+        this.passportRegistrationPhotoPath = passportRegistrationPhotoPath;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public String getMiddleName() { return middleName; }
-    public void setMiddleName(String middleName) { this.middleName = middleName; }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
+
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
@@ -35,24 +62,21 @@ public class Client {
     public String getPassport() { return passport; }
     public void setPassport(String passport) { this.passport = passport; }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getRegistrationAddress() { return registrationAddress; }
+    public void setRegistrationAddress(String registrationAddress) { this.registrationAddress = registrationAddress; }
 
-    public String getVerificationStatus() { return verificationStatus; }
-    public void setVerificationStatus(String verificationStatus) { this.verificationStatus = verificationStatus; }
+    public VerificationStatus getVerificationStatus() { return verificationStatus; }
+    public void setVerificationStatus(VerificationStatus verificationStatus) { this.verificationStatus = verificationStatus; }
 
-    public Date getVerificationDate() { return verificationDate; }
-    public void setVerificationDate(Date verificationDate) { this.verificationDate = verificationDate; }
+    public String getPassportMainPhotoPath() { return passportMainPhotoPath; }
+    public void setPassportMainPhotoPath(String passportMainPhotoPath) { this.passportMainPhotoPath = passportMainPhotoPath; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getPassportRegistrationPhotoPath() { return passportRegistrationPhotoPath; }
+    public void setPassportRegistrationPhotoPath(String passportRegistrationPhotoPath) { this.passportRegistrationPhotoPath = passportRegistrationPhotoPath; }
 
-    public String getPasswordHash() { return passwordHash; }
-    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 
-    public boolean isActive() { return isActive; }
-    public void setIsActive(boolean isActive) { this.isActive = isActive; }
-
-    public Date getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
 }
